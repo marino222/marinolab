@@ -1,79 +1,194 @@
-body {
-    font-family: Arial, sans-serif;
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
     background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
+/* Header Styles */
 header {
-    background-color: #333;
+    background: linear-gradient(45deg, #4a90e2, #9013fe);
     color: #fff;
-    padding: 1rem 0;
+    padding: 2rem 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+}
+
+/* Navigation Bar Styles */
 nav {
-    background-color: #444;
-    overflow: hidden;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
-    float: left;
-    display: block;
     color: #fff;
-    text-align: center;
-    padding: 14px 20px;
     text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #575757;
+    background: #555;
+    border-radius: 4px;
+    color: #e3e3e3;
 }
 
+/* Hero Section Styles */
 .hero {
-    background: url('3d-printing.jpg') no-repeat center center/cover;
-    height: 400px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('3d-printing.jpg') no-repeat center center/cover;
+    height: 500px;
     color: #fff;
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
 }
 
 .hero h1 {
     font-size: 3rem;
-    margin: 0;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
+.hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    line-height: 1.8;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container Styles */
 .container {
-    padding: 2rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
 }
 
+/* Section Styles */
 .services, .gallery, .contact {
-    margin: 2rem 0;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.services h2, .gallery h2, .contact h2 {
+.services:hover, .gallery:hover, .contact:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
-    color: #333;
+    color: #4a90e2;
 }
 
-.services p, .gallery p, .contact p {
+section p {
+    font-size: 1.1rem;
     text-align: center;
     color: #555;
+    line-height: 1.8;
+}
+
+/* Gallery Styles */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .gallery img {
     width: 100%;
     height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact Styles */
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    font-size: 1.2rem;
+}
+
+.contact a {
+    color: #4a90e2;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
 footer {
-    background-color: #333;
+    background: #333;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: 1rem 0;
+        border-bottom: 1px solid #444;
+    }
 }
