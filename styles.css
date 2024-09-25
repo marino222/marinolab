@@ -1,22 +1,49 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+/* Default Light Mode Variables */
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --header-background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    --nav-background: #fff;
+    --nav-text-color: #333;
+    --nav-hover-color: #2c5364;
+    --section-background: #fff;
+    --section-shadow: rgba(0, 0, 0, 0.1);
+    --section-hover-shadow: rgba(0, 0, 0, 0.15);
+    --button-background: #2c5364;
+    --button-text-color: #fff;
+    --footer-background: #0f2027;
+    --footer-text-color: #ccc;
 }
 
+/* Dark Mode Variables */
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --header-background: linear-gradient(90deg, #1f1f1f, #3a3a3a, #4b4b4b);
+    --nav-background: #333;
+    --nav-text-color: #e0e0e0;
+    --nav-hover-color: #4a90e2;
+    --section-background: #1e1e1e;
+    --section-shadow: rgba(0, 0, 0, 0.4);
+    --section-hover-shadow: rgba(0, 0, 0, 0.6);
+    --button-background: #4a90e2;
+    --button-text-color: #fff;
+    --footer-background: #1f1f1f;
+    --footer-text-color: #999;
+}
+
+/* Apply Variables */
 body {
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
     overflow-x: hidden;
 }
 
 /* Header Styles */
 header {
-    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    background: var(--header-background);
     color: #fff;
     padding: 4rem 2rem;
     text-align: center;
@@ -35,8 +62,8 @@ header p {
 
 /* Navigation Bar Styles */
 nav {
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: var(--nav-background);
+    box-shadow: 0 2px 4px var(--section-shadow);
     display: flex;
     justify-content: center;
     position: sticky;
@@ -46,7 +73,7 @@ nav {
 }
 
 nav a {
-    color: #333;
+    color: var(--nav-text-color);
     text-decoration: none;
     padding: 1rem 1.5rem;
     font-weight: 500;
@@ -55,7 +82,26 @@ nav a {
 }
 
 nav a:hover {
-    color: #2c5364;
+    color: var(--nav-hover-color);
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    background: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    transition: background 0.3s ease;
+}
+
+#dark-mode-toggle:hover {
+    background: #1e293b;
 }
 
 /* Hero Section Styles */
@@ -86,8 +132,8 @@ nav a:hover {
 }
 
 .hero a {
-    background: #2c5364;
-    color: #fff;
+    background: var(--button-background);
+    color: var(--button-text-color);
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-size: 1rem;
@@ -110,14 +156,14 @@ nav a:hover {
 section {
     margin-bottom: 4rem;
     padding: 2rem;
-    background: #fff;
+    background: var(--section-background);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--section-shadow);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 section:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px var(--section-hover-shadow);
     transform: translateY(-5px);
 }
 
@@ -131,7 +177,7 @@ section h2 {
 section p {
     font-size: 1.1rem;
     text-align: center;
-    color: #666;
+    color: var(--text-color);
     line-height: 1.8;
 }
 
@@ -153,6 +199,10 @@ section p {
     transition: box-shadow 0.3s ease;
 }
 
+[data-theme="dark"] .service-item {
+    background: var(--section-background);
+}
+
 .service-item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -163,10 +213,18 @@ section p {
     color: #2c5364;
 }
 
+[data-theme="dark"] .service-item h3 {
+    color: #4a90e2;
+}
+
 .service-item p {
     font-size: 1rem;
     color: #666;
     line-height: 1.6;
+}
+
+[data-theme="dark"] .service-item p {
+    color: #ccc;
 }
 
 /* Gallery Section */
@@ -199,10 +257,10 @@ section p {
 }
 
 .contact a {
-    color: #2c5364;
+    color: var(--button-background);
     text-decoration: none;
     font-weight: 500;
-    border-bottom: 1px solid #2c5364;
+    border-bottom: 1px solid var(--button-background);
     transition: color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -211,10 +269,15 @@ section p {
     border-color: #1e293b;
 }
 
+[data-theme="dark"] .contact a {
+    color: var(--button-background);
+    border-bottom: 1px solid var(--button-background);
+}
+
 /* Footer Styles */
 footer {
-    background: #0f2027;
-    color: #ccc;
+    background: var(--footer-background);
+    color: var(--footer-text-color);
     text-align: center;
     padding: 1.5rem 0;
 }
@@ -225,7 +288,7 @@ footer p {
 }
 
 footer a {
-    color: #2c5364;
+    color: var(--button-background);
     text-decoration: none;
     font-weight: 500;
 }
@@ -236,36 +299,4 @@ footer a:hover {
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .services {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .service-item {
-        width: 80%;
-    }
-
-    nav {
-        flex-direction: column;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    nav a {
-        padding: 0.75rem 0;
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #eaeaea;
-    }
-
-    nav a:last-child {
-        border-bottom: none;
-    }
-}
+    .hero
