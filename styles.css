@@ -3,127 +3,173 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
     overflow-x: hidden;
 }
 
 /* Header Styles */
 header {
-    background: linear-gradient(45deg, #4a90e2, #9013fe);
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
     color: #fff;
-    padding: 2rem 0;
+    padding: 4rem 2rem;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     font-size: 2.5rem;
+    letter-spacing: 1px;
     margin-bottom: 0.5rem;
 }
 
 header p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    opacity: 0.8;
 }
 
 /* Navigation Bar Styles */
 nav {
-    background: #333;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
-    padding: 1rem;
     position: sticky;
     top: 0;
+    width: 100%;
     z-index: 1000;
 }
 
 nav a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
     font-size: 1rem;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    background: #555;
-    border-radius: 4px;
-    color: #e3e3e3;
+    color: #2c5364;
 }
 
 /* Hero Section Styles */
 .hero {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('3d-printing.jpg') no-repeat center center/cover;
-    height: 500px;
-    color: #fff;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('3d-printing.jpg') no-repeat center center/cover;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 2rem;
+    color: #fff;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
-    animation: fadeIn 1.5s ease-in-out;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .hero p {
     font-size: 1.25rem;
-    max-width: 700px;
-    line-height: 1.8;
-    animation: fadeIn 2s ease-in-out;
+    max-width: 600px;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.hero a {
+    background: #2c5364;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.hero a:hover {
+    background: #1e293b;
 }
 
 /* Container Styles */
 .container {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
 }
 
 /* Section Styles */
-.services, .gallery, .contact {
-    margin: 3rem 0;
+section {
+    margin-bottom: 4rem;
     padding: 2rem;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.services:hover, .gallery:hover, .contact:hover {
+section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 section h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    color: #333;
     text-align: center;
-    color: #4a90e2;
+    margin-bottom: 1rem;
 }
 
 section p {
     font-size: 1.1rem;
     text-align: center;
-    color: #555;
+    color: #666;
     line-height: 1.8;
 }
 
-/* Gallery Styles */
+/* Services Section */
+.services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin: 1rem 0;
+    padding: 2rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c5364;
+}
+
+.service-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Gallery Section */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -133,17 +179,17 @@ section p {
 .gallery img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery img:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Contact Styles */
+/* Contact Section */
 .contact {
     text-align: center;
 }
@@ -153,24 +199,39 @@ section p {
 }
 
 .contact a {
-    color: #4a90e2;
+    color: #2c5364;
     text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid #2c5364;
+    transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .contact a:hover {
-    text-decoration: underline;
+    color: #1e293b;
+    border-color: #1e293b;
 }
 
 /* Footer Styles */
 footer {
-    background: #333;
-    color: #fff;
+    background: #0f2027;
+    color: #ccc;
     text-align: center;
-    padding: 1rem 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 0;
+}
+
+footer p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+footer a {
+    color: #2c5364;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 /* Media Queries */
@@ -183,12 +244,28 @@ footer {
         font-size: 1rem;
     }
 
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item {
+        width: 80%;
+    }
+
     nav {
         flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     nav a {
-        padding: 1rem 0;
-        border-bottom: 1px solid #444;
+        padding: 0.75rem 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+    nav a:last-child {
+        border-bottom: none;
     }
 }
